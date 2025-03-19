@@ -120,17 +120,21 @@ public class Stanza {
 	* @return la rappresentazione stringa
 	*/
     public String toString() {
-    	StringBuilder risultato = new StringBuilder();
-    	risultato.append(this.nome);
-    	risultato.append("\nUscite: ");
-    	for (String direzione : this.direzioni)
-    		if (direzione!=null)
-    			risultato.append(" " + direzione);
-    	risultato.append("\nAttrezzi nella stanza: ");
-    	for (Attrezzo attrezzo : this.attrezzi) {
-    		risultato.append(attrezzo.toString()+" ");
-    	}
-    	return risultato.toString();
+        StringBuilder risultato = new StringBuilder();
+        risultato.append(this.nome);
+        risultato.append("\nUscite: ");
+        for (String direzione : this.direzioni) {
+            if (direzione != null) {
+                risultato.append(" " + direzione);
+            }
+        }
+        risultato.append("\nAttrezzi nella stanza: ");
+        for (Attrezzo attrezzo : this.attrezzi) {
+            if (attrezzo != null) { // Verifica che l'attrezzo non sia null
+                risultato.append(attrezzo.toString() + " ");
+            }
+        }
+        return risultato.toString();
     }
 
     /**
@@ -170,6 +174,14 @@ public class Stanza {
 	 */
 	public boolean removeAttrezzo(Attrezzo attrezzo) {
 		// TODO da implementare
+		for (int i = 0; i < this.attrezzi.length; i++) {
+	        if (this.attrezzi[i] != null && this.attrezzi[i].equals(attrezzo)) {
+	            this.attrezzi[i] = null; // Rimuove l'attrezzo
+	            this.numeroAttrezzi--;
+	            return true;
+	        }
+	    }
+	    
 		return false;
 	}
 
