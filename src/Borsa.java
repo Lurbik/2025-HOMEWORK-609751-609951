@@ -49,7 +49,7 @@ public class Borsa {
 		return peso;
 	}
 	public boolean isEmpty() {
-		 this.numeroAttrezzi == 0;
+		return (this.numeroAttrezzi == 0);
 	}
 	public boolean hasAttrezzo(String nomeAttrezzo) {
 		return this.getAttrezzo(nomeAttrezzo)!=null;
