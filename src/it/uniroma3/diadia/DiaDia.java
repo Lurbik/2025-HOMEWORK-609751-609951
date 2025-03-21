@@ -1,10 +1,10 @@
-
+package it.uniroma3.diadia;
 
 import java.util.Scanner;
 
 /**
  * Classe principale di diadia, un semplice gioco di ruolo ambientato al dia.
- * Per giocare crea un'istanza di questa classe e invoca il letodo giocaa
+ * Per giocare crea un'istanza di questa classe e invoca il letodo gioca
  *
  * Questa e' la classe principale crea e istanzia tutte le altre
  *
@@ -51,35 +51,34 @@ public class DiaDia {
 	 *
 	 * @return true se l'istruzione e' eseguita e il gioco continua, false altrimenti
 	 */
-	
 	private boolean processaIstruzione(String istruzione) {
-        Comando comandoDaEseguire = new Comando(istruzione);
+		 Comando comandoDaEseguire = new Comando(istruzione);
 
-        if (comandoDaEseguire.getNome().equals("fine")) {
-            this.fine();
-            return true;
-        } else if (comandoDaEseguire.getNome().equals("vai"))
-            this.vai(comandoDaEseguire.getParametro());
-        else if (comandoDaEseguire.getNome().equals("aiuto"))
-            this.aiuto();
-        else if (comandoDaEseguire.getNome().equals("prendi"))
-            this.prendi(comandoDaEseguire.getParametro());
-        else if (comandoDaEseguire.getNome().equals("posa"))
-            this.posa(comandoDaEseguire.getParametro());
-        else
-            System.out.println("Comando sconosciuto");
+	        if (comandoDaEseguire.getNome().equals("fine")) {
+	            this.fine();
+	            return true;
+	        } else if (comandoDaEseguire.getNome().equals("vai"))
+	            this.vai(comandoDaEseguire.getParametro());
+	        else if (comandoDaEseguire.getNome().equals("aiuto"))
+	            this.aiuto();
+	        else if (comandoDaEseguire.getNome().equals("prendi"))
+	            this.prendi(comandoDaEseguire.getParametro());
+	        else if (comandoDaEseguire.getNome().equals("posa"))
+	            this.posa(comandoDaEseguire.getParametro());
+	        else
+	            System.out.println("Comando sconosciuto");
 
-        if (this.partita.isFinita()) {
-            if (this.partita.vinta()) {
-                System.out.println("Hai vinto!");
-            } else {
-                System.out.println("Hai perso! CFU esauriti.");
-            }
-            return true;
-        }
+	        if (this.partita.isFinita()) {
+	            if (this.partita.vinta()) {
+	                System.out.println("Hai vinto!");
+	            } else {
+	                System.out.println("Hai perso! CFU esauriti.");
+	            }
+	            return true;
+	        }
 
-        return false;
-    }
+	        return false;
+	    }
 
 	// implementazioni dei comandi dell'utente:
 
