@@ -19,7 +19,7 @@ public class Partita {
 	
     public Partita() {
         this.labirinto = new Labirinto();
-        this.stanzaCorrente = labirinto.getStanzaIniziale();
+        this.stanzaCorrente = labirinto.getStanzaCorrente();
         this.finita = false;
         this.giocatore = new Giocatore(); // inizializza Giocatore
         this.giocatore.setCfu(CFU_INIZIALI); // setta i CFU in Giocatore
@@ -40,7 +40,7 @@ public class Partita {
     }
 
     public boolean vinta() {
-        return this.getStanzaCorrente().equals(this.labirinto.getStanzaFinale());
+        return this.getStanzaCorrente().equals(this.labirinto.getStanzaVincente());
     }
 
     public boolean isFinita() {
@@ -54,12 +54,17 @@ public class Partita {
     public Giocatore getGiocatore() {
         return this.giocatore; // getter di Giocatore
     }
-}
+
 	public void setCfu(int cfu) {
-		this.cfu = cfu;		
+		this.giocatore.setCfu(cfu);		
 	}
+	 public int getCfu() {
+	        return this.giocatore.getCfu(); // Restituisce i CFU dal Giocatore
+	    }
 	
 	public Labirinto getLabirinto() {
         return this.labirinto;
     }
+	
+	
 }
