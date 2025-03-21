@@ -1,6 +1,5 @@
-import it.uniroma3.diadia.ambienti.*;
-import it.uniroma3.diadia.attrezzi.*;
-import it.uniroma3.diadia.giocatore.*;
+package it.uniroma3.diadia;
+
 
 
 
@@ -47,3 +46,5 @@ public class Comando {
         return (this.nome == null);
     }
 }
+
+/*pablo*/

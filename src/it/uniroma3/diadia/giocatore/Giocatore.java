@@ -37,3 +37,5 @@ public class Giocatore {
         return this.borsa.removeAttrezzo(nomeAttrezzo);
     }
 }
+
+/*pablo*/
