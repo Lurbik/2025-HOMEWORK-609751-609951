@@ -25,7 +25,6 @@ public class Partita {
         this.giocatore.setCfu(CFU_INIZIALI); // setta i CFU in Giocatore
     }
 
-    
 	
 	/**
 	 * Restituisce vero se e solo se la partita e' stata vinta
@@ -58,13 +57,10 @@ public class Partita {
 	public void setCfu(int cfu) {
 		this.giocatore.setCfu(cfu);		
 	}
-	 public int getCfu() {
-	        return this.giocatore.getCfu(); // Restituisce i CFU dal Giocatore
-	    }
-	
+	public int getCfu() {
+		return this.giocatore.getCfu();
+	}
 	public Labirinto getLabirinto() {
         return this.labirinto;
     }
-	
-	
 }

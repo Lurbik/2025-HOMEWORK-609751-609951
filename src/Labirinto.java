@@ -53,9 +53,11 @@ public class Labirinto {
 	public void setStanzaCorrente(Stanza stanzaCorrente) {
 		this.StanzaCorrente = stanzaCorrente;
 	}
-
+	
 	public Stanza getStanzaCorrente() {
 		return this.StanzaCorrente;
 	}
+	
+	
 	
 }
