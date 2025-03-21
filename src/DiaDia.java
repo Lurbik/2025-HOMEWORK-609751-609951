@@ -51,6 +51,7 @@ public class DiaDia {
 	 *
 	 * @return true se l'istruzione e' eseguita e il gioco continua, false altrimenti
 	 */
+	
 	private boolean processaIstruzione(String istruzione) {
 		Comando comandoDaEseguire = new Comando(istruzione);
 
@@ -63,12 +64,20 @@ public class DiaDia {
 			this.aiuto();
 		else
 			System.out.println("Comando sconosciuto");
-		if (this.partita.vinta()) {
-			System.out.println("Hai vinto!");
+
+		// --> Controllo partita finita per qualsiasi motivo (vittoria, CFU finiti, ecc.)
+		if (this.partita.isFinita()) {
+			if (this.partita.vinta()) {
+				System.out.println("Hai vinto!");
+			} else if (this.partita.getCfu() == 0) {
+				System.out.println("Hai perso! CFU esauriti.");
+			} else {
+				System.out.println("Partita terminata.");
+			}
 			return true;
-		} else
-			return false;
-	}   
+		}
+		return false;
+	}
 
 	// implementazioni dei comandi dell'utente:
 
@@ -95,7 +104,8 @@ public class DiaDia {
 		else {
 			this.partita.setStanzaCorrente(prossimaStanza);
 			int cfu = this.partita.getCfu();
-			this.partita.setCfu(cfu--);
+			cfu--;
+			this.partita.setCfu(cfu);
 		}
 		System.out.println(partita.getStanzaCorrente().getDescrizione());
 	}

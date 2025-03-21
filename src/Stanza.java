@@ -145,7 +145,7 @@ public class Stanza {
 		boolean trovato;
 		trovato = false;
 		for (Attrezzo attrezzo : this.attrezzi) {
-			if (attrezzo.getNome().equals(nomeAttrezzo) && attrezzo != null)
+			if (attrezzo.getNome().equals(nomeAttrezzo))
 				trovato = true;
 		}
 		return trovato;
@@ -161,7 +161,7 @@ public class Stanza {
 		Attrezzo attrezzoCercato;
 		attrezzoCercato = null;
 		for (Attrezzo attrezzo : this.attrezzi) {
-			if (attrezzo.getNome().equals(nomeAttrezzo) && attrezzo !=null)
+			if (attrezzo.getNome().equals(nomeAttrezzo))
 				attrezzoCercato = attrezzo;
 		}
 		return attrezzoCercato;	
@@ -173,17 +173,16 @@ public class Stanza {
 	 * @return true se l'attrezzo e' stato rimosso, false altrimenti
 	 */
 	public boolean removeAttrezzo(Attrezzo attrezzo) {
-	    for (int i = 0; i < this.numeroAttrezzi; i++) {
-	        if (this.attrezzi[i].equals(attrezzo)) {
-	            for (int j = i; j < this.numeroAttrezzi - 1; j++) {
-	                this.attrezzi[j] = this.attrezzi[j + 1];
-	            }
-	            this.attrezzi[this.numeroAttrezzi - 1] = null;
+		// TODO da implementare
+		for (int i = 0; i < this.attrezzi.length; i++) {
+	        if (this.attrezzi[i] != null && this.attrezzi[i].equals(attrezzo)) {
+	            this.attrezzi[i] = null; // Rimuove l'attrezzo
 	            this.numeroAttrezzi--;
 	            return true;
 	        }
 	    }
-	    return false;
+	    
+		return false;
 	}
 
 
