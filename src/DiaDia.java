@@ -26,7 +26,7 @@ public class DiaDia {
 			"o regalarli se pensi che possano ingraziarti qualcuno.\n\n"+
 			"Per conoscere le istruzioni usa il comando 'aiuto'.";
 	
-	static final private String[] elencoComandi = {"vai", "aiuto", "fine"};
+	static final private String[] elencoComandi = {"vai", "aiuto", "fine", "prendi", "posa"};
 
 	private Partita partita;
 
@@ -53,31 +53,33 @@ public class DiaDia {
 	 */
 	
 	private boolean processaIstruzione(String istruzione) {
-		Comando comandoDaEseguire = new Comando(istruzione);
+        Comando comandoDaEseguire = new Comando(istruzione);
 
-		if (comandoDaEseguire.getNome().equals("fine")) {
-			this.fine(); 
-			return true;
-		} else if (comandoDaEseguire.getNome().equals("vai"))
-			this.vai(comandoDaEseguire.getParametro());
-		else if (comandoDaEseguire.getNome().equals("aiuto"))
-			this.aiuto();
-		else
-			System.out.println("Comando sconosciuto");
+        if (comandoDaEseguire.getNome().equals("fine")) {
+            this.fine();
+            return true;
+        } else if (comandoDaEseguire.getNome().equals("vai"))
+            this.vai(comandoDaEseguire.getParametro());
+        else if (comandoDaEseguire.getNome().equals("aiuto"))
+            this.aiuto();
+        else if (comandoDaEseguire.getNome().equals("prendi"))
+            this.prendi(comandoDaEseguire.getParametro());
+        else if (comandoDaEseguire.getNome().equals("posa"))
+            this.posa(comandoDaEseguire.getParametro());
+        else
+            System.out.println("Comando sconosciuto");
 
-		// --> Controllo partita finita per qualsiasi motivo (vittoria, CFU finiti, ecc.)
-		if (this.partita.isFinita()) {
-			if (this.partita.vinta()) {
-				System.out.println("Hai vinto!");
-			} else if (this.partita.getCfu() == 0) {
-				System.out.println("Hai perso! CFU esauriti.");
-			} else {
-				System.out.println("Partita terminata.");
-			}
-			return true;
-		}
-		return false;
-	}
+        if (this.partita.isFinita()) {
+            if (this.partita.vinta()) {
+                System.out.println("Hai vinto!");
+            } else {
+                System.out.println("Hai perso! CFU esauriti.");
+            }
+            return true;
+        }
+
+        return false;
+    }
 
 	// implementazioni dei comandi dell'utente:
 
@@ -109,6 +111,33 @@ public class DiaDia {
 		}
 		System.out.println(partita.getStanzaCorrente().getDescrizione());
 	}
+	
+	private void prendi(String nomeAttrezzo) {
+        Stanza stanza = this.partita.getStanzaCorrente();
+        Attrezzo attrezzo = stanza.removeAttrezzo(nomeAttrezzo);
+        if (attrezzo != null) {
+            if (this.partita.getGiocatore().getBorsa().addAttrezzo(attrezzo)) {
+                System.out.println("Hai preso l'attrezzo: " + attrezzo.getNome());
+            } else {
+                // Se la borsa è piena
+                stanza.addAttrezzo(attrezzo); // Rimetti l'attrezzo nella stanza
+                System.out.println("Non hai abbastanza spazio nella borsa!");
+            }
+        } else {
+            System.out.println("L'attrezzo non si trova in questa stanza.");
+        }
+    }
+	
+	private void posa(String nomeAttrezzo) {
+        Borsa borsa = this.partita.getGiocatore().getBorsa();
+        Attrezzo attrezzo = borsa.removeAttrezzo(nomeAttrezzo);
+        if (attrezzo != null) {
+            this.partita.getStanzaCorrente().addAttrezzo(attrezzo);
+            System.out.println("Hai posato l'attrezzo: " + attrezzo.getNome());
+        } else {
+            System.out.println("Non hai questo attrezzo nella borsa.");
+        }
+    }
 
 	/**
 	 * Comando "Fine".

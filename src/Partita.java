@@ -9,54 +9,57 @@
 
 public class Partita {
 
-	static final private int CFU_INIZIALI = 2;
+	static final private int CFU_INIZIALI = 20;
 
 
     private Stanza stanzaCorrente;
     private boolean finita;
-    private int cfu;
+    private Giocatore giocatore;
     private Labirinto labirinto; // riferimento al labirinto
 	
-    public Partita(){
-        this.labirinto = new Labirinto(); // inizializza il labirinto
-        this.stanzaCorrente = labirinto.getStanzaCorrente(); // stanza iniziale dal labirinto
+    public Partita() {
+        this.labirinto = new Labirinto();
+        this.stanzaCorrente = labirinto.getStanzaIniziale();
         this.finita = false;
-        this.cfu = CFU_INIZIALI;
+        this.giocatore = new Giocatore(); // inizializza Giocatore
+        this.giocatore.setCfu(CFU_INIZIALI); // setta i CFU in Giocatore
     }
 
-    public Stanza getStanzaVincente() {
-        return labirinto.getStanzaVincente();
+    
+	
+	/**
+	 * Restituisce vero se e solo se la partita e' stata vinta
+	 * @return vero se partita vinta
+	 */
+    public Stanza getStanzaCorrente() {
+        return this.stanzaCorrente;
     }
 
     public void setStanzaCorrente(Stanza stanzaCorrente) {
         this.stanzaCorrente = stanzaCorrente;
     }
 
-    public Stanza getStanzaCorrente() {
-        return this.stanzaCorrente;
-    }
-    
     public boolean vinta() {
-        return this.getStanzaCorrente() == labirinto.getStanzaVincente();
+        return this.getStanzaCorrente().equals(this.labirinto.getStanzaFinale());
     }
 
     public boolean isFinita() {
-        return finita || vinta() || (cfu == 0);
+        return finita || vinta() || (this.giocatore.getCfu() == 0); // get CFU dal Giocatore
     }
 
     public void setFinita() {
         this.finita = true;
     }
 
-    public int getCfu() {
-        return this.cfu;
+    public Giocatore getGiocatore() {
+        return this.giocatore; // getter di Giocatore
     }
-
-    public void setCfu(int cfu) {
-        this.cfu = cfu;        
-    }
-
-    public Labirinto getLabirinto() {
+}
+	public void setCfu(int cfu) {
+		this.cfu = cfu;		
+	}
+	
+	public Labirinto getLabirinto() {
         return this.labirinto;
     }
 }
