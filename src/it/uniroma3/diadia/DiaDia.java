@@ -4,6 +4,7 @@ import java.util.Scanner;
 import it.uniroma3.diadia.ambienti.*;
 import it.uniroma3.diadia.attrezzi.*;
 import it.uniroma3.diadia.giocatore.*;
+import it.uniroma3.diadia.IOConsole.*;
 
 
 /**
