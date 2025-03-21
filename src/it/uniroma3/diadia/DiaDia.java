@@ -134,7 +134,7 @@ public class DiaDia {
 	
 	private void posa(String nomeAttrezzo) {
         Borsa borsa = this.partita.getGiocatore().getBorsa();
-        Attrezzo attrezzo = this.Borsa.removeAttrezzo(nomeAttrezzo);
+        Attrezzo attrezzo = borsa.removeAttrezzo(nomeAttrezzo);
         if (attrezzo != null) {
             this.partita.getStanzaCorrente().addAttrezzo(attrezzo);
             System.out.println("Hai posato l'attrezzo: " + attrezzo.getNome());
