@@ -7,7 +7,7 @@ public class Labirinto {
 	private Stanza StanzaCorrente;
     private Stanza StanzaVincente;
 
-}
+
     public Labirinto() {
         this.creaStanze();
 
