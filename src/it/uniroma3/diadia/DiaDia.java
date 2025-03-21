@@ -119,7 +119,7 @@ public class DiaDia {
 	
 	private void prendi(String nomeAttrezzo) {
         Stanza stanza = this.partita.getStanzaCorrente();
-        Attrezzo attrezzo = stanza.removeAttrezzo(nomeAttrezzo);
+        Attrezzo attrezzo = stanza.getAttrezzo(nomeAttrezzo);
         if (attrezzo != null) {
             if (this.partita.getGiocatore().getBorsa().addAttrezzo(attrezzo)) {
                 io.mostraMessaggio("Hai preso l'attrezzo: " + attrezzo.getNome());
