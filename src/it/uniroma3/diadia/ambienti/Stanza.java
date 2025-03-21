@@ -1,5 +1,8 @@
 package it.uniroma3.diadia.ambienti;
 
+import it.uniroma3.diadia.attrezzi.*;
+import it.uniroma3.diadia.giocatore.*;
+import it.uniroma3.diadia.*;
 
 /**
  * Classe Stanza - una stanza in un gioco di ruolo.
@@ -120,18 +123,21 @@ public class Stanza {
 	*/
     public String toString() {
     	StringBuilder risultato = new StringBuilder();
-    	risultato.append(this.nome);
-    	risultato.append("\nUscite: ");
-    	for (String direzione : this.direzioni)
-    		if (direzione!=null)
-    			risultato.append(" " + direzione);
-    	risultato.append("\nAttrezzi nella stanza: ");
-    	for (Attrezzo attrezzo : this.attrezzi) {
-    		risultato.append(attrezzo.toString()+" ");
-    	}
-    	return risultato.toString();
+        risultato.append(this.nome);
+        risultato.append("\nUscite: ");
+        for (String direzione : this.direzioni) {
+            if (direzione != null) {
+                risultato.append(" " + direzione);
+            }
+        }
+        risultato.append("\nAttrezzi nella stanza: ");
+        for (Attrezzo attrezzo : this.attrezzi) {
+            if (attrezzo != null) { // Verifica che l'attrezzo non sia null
+                risultato.append(attrezzo.toString() + " ");
+            }
+        }
+        return risultato.toString();
     }
-
     /**
 	* Controlla se un attrezzo esiste nella stanza (uguaglianza sul nome).
 	* @return true se l'attrezzo esiste nella stanza, false altrimenti.
@@ -140,7 +146,7 @@ public class Stanza {
 		boolean trovato;
 		trovato = false;
 		for (Attrezzo attrezzo : this.attrezzi) {
-			if (attrezzo.getNome().equals(nomeAttrezzo))
+			if (attrezzo.getNome().equals(nomeAttrezzo) && attrezzo != null)
 				trovato = true;
 		}
 		return trovato;
@@ -156,7 +162,7 @@ public class Stanza {
 		Attrezzo attrezzoCercato;
 		attrezzoCercato = null;
 		for (Attrezzo attrezzo : this.attrezzi) {
-			if (attrezzo.getNome().equals(nomeAttrezzo))
+			if (attrezzo.getNome().equals(nomeAttrezzo) && attrezzo != null)
 				attrezzoCercato = attrezzo;
 		}
 		return attrezzoCercato;	
@@ -168,7 +174,17 @@ public class Stanza {
 	 * @return true se l'attrezzo e' stato rimosso, false altrimenti
 	 */
 	public boolean removeAttrezzo(Attrezzo attrezzo) {
-		// TODO da implementare
+		for (int i = 0; i < this.numeroAttrezzi; i++) {
+	        if (this.attrezzi[i].equals(attrezzo)) {
+	            for (int j = i; j < this.numeroAttrezzi - 1; j++) {
+	                this.attrezzi[j] = this.attrezzi[j + 1];
+	            }
+	            this.attrezzi[this.numeroAttrezzi - 1] = null;
+	            this.numeroAttrezzi--;
+	            return true;
+	        }
+	    }
+	    
 		return false;
 	}
 

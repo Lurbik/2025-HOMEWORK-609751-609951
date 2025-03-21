@@ -10,6 +10,11 @@ package it.uniroma3.diadia;
  * @see Stanza
  * @version base
  */
+import it.uniroma3.diadia.ambienti.*;
+import it.uniroma3.diadia.attrezzi.*;
+import it.uniroma3.diadia.giocatore.*;
+
+
 
 public class Partita {
 
@@ -20,10 +25,12 @@ public class Partita {
 	private boolean finita;
 	private Giocatore giocatore;
 	
-	public Partita(){
-		creaStanze();
-		this.finita = false;
-		this.cfu = CFU_INIZIALI;
+	 public Partita() {
+	        this.labirinto = new Labirinto();
+	        this.stanzaCorrente = labirinto.getStanzaIniziale();
+	        this.finita = false;
+	        this.giocatore = new Giocatore(); // inizializza Giocatore
+	        this.giocatore.setCfu(CFU_INIZIALI); // setta i CFU in Giocatore
 	}
 
     /**
