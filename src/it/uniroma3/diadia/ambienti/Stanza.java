@@ -114,6 +114,7 @@ public class Stanza {
 		for (Attrezzo attrezzo : this.attrezzi) {
 			if (attrezzo.getNome().equals(nomeAttrezzo) && attrezzo != null)
 				attrezzoCercato = attrezzo;
+				break;
 		}
 		return attrezzoCercato;	
 	}
