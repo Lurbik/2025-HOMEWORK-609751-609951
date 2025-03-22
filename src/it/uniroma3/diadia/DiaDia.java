@@ -105,9 +105,10 @@ public class DiaDia {
         if (attrezzo != null) {
             if (this.partita.getGiocatore().getBorsa().addAttrezzo(attrezzo)) {
                 io.mostraMessaggio("Hai preso l'attrezzo: " + attrezzo.getNome());
+                stanza.removeAttrezzo(attrezzo);
             } else {
                 // Se la borsa è piena
-                stanza.addAttrezzo(attrezzo); // Rimetti l'attrezzo nella stanza
+                //stanza.addAttrezzo(attrezzo); // Rimetti l'attrezzo nella stanza
                 io.mostraMessaggio("Non hai abbastanza spazio nella borsa!");
             }
         } else {
