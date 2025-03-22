@@ -93,9 +93,11 @@ public class DiaDia {
 	 * Stampa informazioni di aiuto.
 	 */
 	private void aiuto() {
-		for (int i = 0; i < elencoComandi.length; i++)
-			io.mostraMessaggio(elencoComandi[i] + " ");
-		io.mostraMessaggio(" ");
+	    StringBuilder messaggioAiuto = new StringBuilder();
+	    for (int i = 0; i < elencoComandi.length; i++) {
+	        messaggioAiuto.append(elencoComandi[i]).append(" "); // Aggiungi il comando seguito da uno spazio
+	    }
+	    io.mostraMessaggio(messaggioAiuto.toString()); // Stampa tutti i comandi su una singola riga
 	}
 
 	/**

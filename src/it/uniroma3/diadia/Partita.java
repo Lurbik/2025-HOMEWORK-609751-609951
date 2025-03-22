@@ -29,7 +29,7 @@ public class Partita {
 	 public Partita() {
 	        this.labirinto = new Labirinto();
 	        this.stanzaCorrente = labirinto.getStanzaCorrente();
-	        this.stanzaVincente = labirinto.getStanzaCorrente();
+	        this.stanzaVincente = labirinto.getStanzaVincente();
 	        this.finita = false;
 	        this.giocatore = new Giocatore(); // inizializza Giocatore
 	        this.giocatore.setCfu(CFU_INIZIALI); // setta i CFU in Giocatore
