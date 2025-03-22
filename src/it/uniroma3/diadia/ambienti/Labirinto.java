@@ -12,9 +12,7 @@ public class Labirinto {
         this.creaStanze();
 
     }
-    /**
-     * Crea tutte le stanze e le porte di collegamento
-     */
+    
     private void creaStanze() {
 
 		/* crea gli attrezzi */

@@ -1,15 +1,5 @@
 package it.uniroma3.diadia;
 
-
-
-
-/**
- * Questa classe modella una partita del gioco
- *
- * @author  docente di POO
- * @see Stanza
- * @version base
- */
 import it.uniroma3.diadia.ambienti.*;
 import it.uniroma3.diadia.attrezzi.*;
 import it.uniroma3.diadia.giocatore.*;
@@ -86,4 +76,3 @@ public class Partita {
 	    }
 }
 
-/*pablo*/

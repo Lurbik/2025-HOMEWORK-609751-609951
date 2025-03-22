@@ -6,19 +6,6 @@ import it.uniroma3.diadia.attrezzi.*;
 import it.uniroma3.diadia.giocatore.*;
 import it.uniroma3.diadia.IOConsole.*;
 
-
-/**
- * Classe principale di diadia, un semplice gioco di ruolo ambientato al dia.
- * Per giocare crea un'istanza di questa classe e invoca il letodo gioca
- *
- * Questa e' la classe principale crea e istanzia tutte le altre
- *
- * @author  docente di POO 
- *         (da un'idea di Michael Kolling and David J. Barnes) 
- *          
- * @version base
- */
-
 public class DiaDia {
 
 	static final private String MESSAGGIO_BENVENUTO = ""+
@@ -87,11 +74,7 @@ public class DiaDia {
 	        return false;
 	    }
 
-	// implementazioni dei comandi dell'utente:
 
-	/**
-	 * Stampa informazioni di aiuto.
-	 */
 	private void aiuto() {
 	    StringBuilder messaggioAiuto = new StringBuilder();
 	    for (int i = 0; i < elencoComandi.length; i++) {
@@ -100,10 +83,7 @@ public class DiaDia {
 	    io.mostraMessaggio(messaggioAiuto.toString()); // Stampa tutti i comandi su una singola riga
 	}
 
-	/**
-	 * Cerca di andare in una direzione. Se c'e' una stanza ci entra 
-	 * e ne stampa il nome, altrimenti stampa un messaggio di errore
-	 */
+	
 	private void vai(String direzione) {
 		if (direzione == null)
 			io.mostraMessaggio("Dove vuoi andare ?");
@@ -159,4 +139,3 @@ public class DiaDia {
 	}
 }
 
-/*pablo*/
