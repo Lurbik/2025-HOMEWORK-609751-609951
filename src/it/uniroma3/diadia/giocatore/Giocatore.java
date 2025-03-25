@@ -35,6 +35,7 @@ public class Giocatore {
 
     public Attrezzo posareAttrezzo(String nomeAttrezzo) {
         return this.borsa.removeAttrezzo(nomeAttrezzo);
-    }
+    }
+
 }
 
