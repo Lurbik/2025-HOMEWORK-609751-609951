@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
+import it.uniroma3.diadia.ambienti.*;
+import it.uniroma3.diadia.giocatore.*;
 class TestStanza {
 
 	private Stanza atrio;
@@ -46,9 +48,9 @@ class TestStanza {
     void testRimozioneAttrezzo() {
         // Aggiungiamo e rimuoviamo un attrezzo dalla stanza
         atrio.addAttrezzo(lanterna);
-        Attrezzo attrezzoRimosso = atrio.removeAttrezzo(lanterna);
+        boolean attrezzoRimosso = atrio.removeAttrezzo(lanterna);
         
-        assertNotNull(attrezzoRimosso, "L'attrezzo dovrebbe essere rimosso correttamente");
+        assertTrue(attrezzoRimosso, "L'attrezzo dovrebbe essere rimosso correttamente");
         assertFalse(atrio.hasAttrezzo("lanterna"), "La stanza non dovrebbe più contenere l'attrezzo 'lanterna'");
     }
 

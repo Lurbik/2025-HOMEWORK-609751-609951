@@ -97,22 +97,22 @@ public class Stanza {
         return risultato.toString();
     }
    
-	public boolean hasAttrezzo(String nomeAttrezzo) {
-		boolean trovato;
-		trovato = false;
-		for (Attrezzo attrezzo : this.attrezzi) {
-			if (attrezzo.getNome().equals(nomeAttrezzo) && attrezzo != null)
-				trovato = true;
+		public boolean hasAttrezzo(String nomeAttrezzo) {
+			boolean trovato;
+			trovato = false;
+			for (Attrezzo attrezzo : this.attrezzi) {
+				if (attrezzo != null && attrezzo.getNome().equals(nomeAttrezzo))
+					trovato = true;
+			}
+			return trovato;
 		}
-		return trovato;
-	}
 
 	
 	public Attrezzo getAttrezzo(String nomeAttrezzo) {
 		Attrezzo attrezzoCercato;
 		attrezzoCercato = null;
 		for (Attrezzo attrezzo : this.attrezzi) {
-			if (attrezzo.getNome().equals(nomeAttrezzo) && attrezzo != null)
+			if ( attrezzo != null && attrezzo.getNome().equals(nomeAttrezzo) )
 				attrezzoCercato = attrezzo;
 				break;
 		}
