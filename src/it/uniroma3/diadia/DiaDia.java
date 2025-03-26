@@ -5,6 +5,7 @@ import it.uniroma3.diadia.ambienti.*;
 import it.uniroma3.diadia.attrezzi.*;
 import it.uniroma3.diadia.giocatore.*;
 
+//commenti da mettere
 public class DiaDia {
 
 	static final private String MESSAGGIO_BENVENUTO = ""+
