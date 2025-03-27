@@ -8,23 +8,17 @@ import org.junit.jupiter.api.Test;
 
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
-<<<<<<< HEAD
-import it.uniroma3.diadia.ambienti.*;
-import it.uniroma3.diadia.giocatore.*;
-=======
->>>>>>> provaLurbik
+
+
 class TestStanza {
 
 	private Stanza atrio;
     private Stanza aulaN11;
     private Stanza biblioteca;
     private Attrezzo lanterna;
-<<<<<<< HEAD
-=======
     private Attrezzo spada;
     private Attrezzo osso;
->>>>>>> provaLurbik
-    
+
 
     @BeforeEach
     void setUp() {
@@ -35,20 +29,13 @@ class TestStanza {
 
         // Creiamo attrezzi
         lanterna = new Attrezzo("lanterna", 3);
-<<<<<<< HEAD
-=======
         spada = new Attrezzo("spada", 8);
         osso = new Attrezzo("osso", 1);
->>>>>>> provaLurbik
+
         
     }
 
-    @Test
-    void testStanzaIniziale() {
-        // Verifica che la stanza sia correttamente inizializzata
-        assertNotNull(atrio, "La stanza 'Atrio' non dovrebbe essere null");
-        assertEquals("Atrio", atrio.getNome(), "Il nome della stanza non è corretto");
-    }
+    
 
     @Test
     void testAggiungiAttrezzo() {
@@ -56,9 +43,7 @@ class TestStanza {
         assertTrue(atrio.addAttrezzo(lanterna), "L'attrezzo 'lanterna' dovrebbe essere aggiunto correttamente");
         assertTrue(atrio.hasAttrezzo("lanterna"), "La stanza dovrebbe contenere l'attrezzo 'lanterna'");
     }
-<<<<<<< HEAD
-=======
-    
+  
     @Test
     void testAggiungiAttrezzo2() {
         // Verifica che più attrezzi possano essere inseriti in una stanza
@@ -78,7 +63,7 @@ class TestStanza {
         assertFalse(atrio.hasAttrezzo("spada"), "La stanza non dovrebbe contenere l'attrezzo 'spada'");
         assertFalse(atrio.hasAttrezzo("osso"), "La stanza non dovrebbe contenere l'attrezzo 'osso'");
     }
->>>>>>> provaLurbik
+
 
     @Test
     void testRimozioneAttrezzo() {
@@ -89,9 +74,7 @@ class TestStanza {
         assertTrue(attrezzoRimosso, "L'attrezzo dovrebbe essere rimosso correttamente");
         assertFalse(atrio.hasAttrezzo("lanterna"), "La stanza non dovrebbe più contenere l'attrezzo 'lanterna'");
     }
-<<<<<<< HEAD
-=======
-    
+
     @Test
     void testRimozioneAttrezzo2() {
         // Aggiungiamo più attrezzi e ne rimuoviamo solo 1 verificando che mantenga gli altri 2
@@ -115,7 +98,7 @@ class TestStanza {
         assertFalse(attrezzoRimosso, "L'attrezzo dovrebbe essere rimosso correttamente");
         assertTrue(atrio.hasAttrezzo("lanterna"), "La stanza dovrebbe ancora contenere l'attrezzo 'lanterna'");
     }
->>>>>>> provaLurbik
+
 
     @Test
     void testGetAttrezzo() {
@@ -125,6 +108,7 @@ class TestStanza {
         assertNotNull(attrezzoTrovato, "L'attrezzo 'lanterna' dovrebbe essere trovato");
         assertEquals("lanterna", attrezzoTrovato.getNome(), "Il nome dell'attrezzo trovato non è corretto");
     }
+    
 
     @Test
     void testImpostaStanzaAdiacente() {
@@ -134,6 +118,32 @@ class TestStanza {
         assertNotNull(stanzaAdiacente, "La stanza adiacente a nord non dovrebbe essere null");
         assertEquals("Aula N11", stanzaAdiacente.getNome(), "La stanza adiacente a nord dovrebbe essere l'Aula N11");
     }
+    
+    @Test
+    void testImpostaStanzaAdiacente2() {
+    	// Impostiamo due stanze adiacenti e verifichiamo che siano correttamente collegate
+    	atrio.impostaStanzaAdiacente("nord", aulaN11);
+    	atrio.impostaStanzaAdiacente("sud", biblioteca);
+    	Stanza stanzaAdiacente = atrio.getStanzaAdiacente("nord");
+    	Stanza stanzaAdiacente2 = atrio.getStanzaAdiacente("sud");
+    	assertEquals("Aula N11", stanzaAdiacente.getNome(), "La stanza adiacente a nord dovrebbe essere l'Aula N11");
+    	assertEquals("Biblioteca", stanzaAdiacente2.getNome(), "La stanza adiacente a sud dovrebbe essere la Biblioteca");
+    }
+    
+    @Test
+    
+    void testImpostaStanzaAdiacente3() {
+    	atrio.impostaStanzaAdiacente("nord", aulaN11);
+        atrio.impostaStanzaAdiacente("sud", biblioteca);
+        
+        // Verifica che la direzione "est" non sia stata impostata
+        Stanza stanzaAdiacenteEst = atrio.getStanzaAdiacente("est");
+        
+        // Ci aspettiamo che la stanza adiacente verso "est" sia null
+        assertNull(stanzaAdiacenteEst, "La stanza adiacente a est non dovrebbe esistere");
+    }
+    
+    
 
     @Test
     void testGetDirezioni() {
