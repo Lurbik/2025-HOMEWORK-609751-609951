@@ -8,14 +8,22 @@ import org.junit.jupiter.api.Test;
 
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
+<<<<<<< HEAD
 import it.uniroma3.diadia.ambienti.*;
 import it.uniroma3.diadia.giocatore.*;
+=======
+>>>>>>> provaLurbik
 class TestStanza {
 
 	private Stanza atrio;
     private Stanza aulaN11;
     private Stanza biblioteca;
     private Attrezzo lanterna;
+<<<<<<< HEAD
+=======
+    private Attrezzo spada;
+    private Attrezzo osso;
+>>>>>>> provaLurbik
     
 
     @BeforeEach
@@ -27,6 +35,11 @@ class TestStanza {
 
         // Creiamo attrezzi
         lanterna = new Attrezzo("lanterna", 3);
+<<<<<<< HEAD
+=======
+        spada = new Attrezzo("spada", 8);
+        osso = new Attrezzo("osso", 1);
+>>>>>>> provaLurbik
         
     }
 
@@ -43,6 +56,29 @@ class TestStanza {
         assertTrue(atrio.addAttrezzo(lanterna), "L'attrezzo 'lanterna' dovrebbe essere aggiunto correttamente");
         assertTrue(atrio.hasAttrezzo("lanterna"), "La stanza dovrebbe contenere l'attrezzo 'lanterna'");
     }
+<<<<<<< HEAD
+=======
+    
+    @Test
+    void testAggiungiAttrezzo2() {
+        // Verifica che più attrezzi possano essere inseriti in una stanza
+        assertTrue(atrio.addAttrezzo(lanterna), "L'attrezzo 'lanterna' dovrebbe essere aggiunto correttamente");
+        assertTrue(atrio.addAttrezzo(spada), "L'attrezzo 'spada' dovrebbe essere aggiunto correttamente");
+        assertTrue(atrio.addAttrezzo(osso), "L'attrezzo 'osso' dovrebbe essere aggiunto correttamente");
+        assertTrue(atrio.hasAttrezzo("lanterna"), "La stanza dovrebbe contenere l'attrezzo 'lanterna'");
+        assertTrue(atrio.hasAttrezzo("spada"), "La stanza dovrebbe contenere l'attrezzo 'spada'");
+        assertTrue(atrio.hasAttrezzo("osso"), "La stanza dovrebbe contenere l'attrezzo 'osso'");
+    }
+    
+    @Test
+    void testAggiungiAttrezzo3() {
+        // Verifica che inserendo 1 attrezzo la stanza abbia solo quell'attrezzo
+        assertTrue(atrio.addAttrezzo(lanterna), "L'attrezzo 'lanterna' dovrebbe essere aggiunto correttamente");
+        assertTrue(atrio.hasAttrezzo("lanterna"), "La stanza dovrebbe contenere l'attrezzo 'lanterna'");
+        assertFalse(atrio.hasAttrezzo("spada"), "La stanza non dovrebbe contenere l'attrezzo 'spada'");
+        assertFalse(atrio.hasAttrezzo("osso"), "La stanza non dovrebbe contenere l'attrezzo 'osso'");
+    }
+>>>>>>> provaLurbik
 
     @Test
     void testRimozioneAttrezzo() {
@@ -53,6 +89,33 @@ class TestStanza {
         assertTrue(attrezzoRimosso, "L'attrezzo dovrebbe essere rimosso correttamente");
         assertFalse(atrio.hasAttrezzo("lanterna"), "La stanza non dovrebbe più contenere l'attrezzo 'lanterna'");
     }
+<<<<<<< HEAD
+=======
+    
+    @Test
+    void testRimozioneAttrezzo2() {
+        // Aggiungiamo più attrezzi e ne rimuoviamo solo 1 verificando che mantenga gli altri 2
+        atrio.addAttrezzo(lanterna);
+        atrio.addAttrezzo(spada);
+        atrio.addAttrezzo(osso);
+        boolean attrezzoRimosso = atrio.removeAttrezzo(spada);
+        
+        assertTrue(attrezzoRimosso, "L'attrezzo dovrebbe essere rimosso correttamente");
+        assertFalse(atrio.hasAttrezzo("spada"), "La stanza non dovrebbe più contenere l'attrezzo 'spada'");
+        assertTrue(atrio.hasAttrezzo("lanterna"), "La stanza dovrebbe ancora contenere l'attrezzo 'lanterna'");
+        assertTrue(atrio.hasAttrezzo("osso"), "La stanza dovrebbe ancora contenere l'attrezzo 'osso'");
+    }
+    
+    @Test
+    void testRimozioneAttrezzo3() {
+        // Aggiungiamo un attrezzo e ne rimuoviamo un altro non presente, verificando che non tolga nessun attrezzo
+        atrio.addAttrezzo(lanterna);
+        boolean attrezzoRimosso = atrio.removeAttrezzo(spada);
+        
+        assertFalse(attrezzoRimosso, "L'attrezzo dovrebbe essere rimosso correttamente");
+        assertTrue(atrio.hasAttrezzo("lanterna"), "La stanza dovrebbe ancora contenere l'attrezzo 'lanterna'");
+    }
+>>>>>>> provaLurbik
 
     @Test
     void testGetAttrezzo() {
