@@ -141,7 +141,7 @@ public class DiaDia {
 	 * Comando "Fine".
 	 */
 	private void fine() {
-		io.mostraMessaggio("Grazie di aver giocato!");  // si desidera smettere
+		io.mostraMessaggio("Grazie di aver giocato! ");  // si desidera smettere
 	}
 
 	public static void main(String[] argc) {
@@ -149,4 +149,4 @@ public class DiaDia {
 		gioco.gioca();
 	}
 }
-
+ 

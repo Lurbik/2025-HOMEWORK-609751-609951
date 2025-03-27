@@ -188,6 +188,27 @@ class TestStanza {
         assertFalse(direzioni[0].equals("ovest") || direzioni[1].equals("nord"), "La direzione 'nord' dovrebbe essere presente");
         assertTrue(direzioni[0].equals("est") || direzioni[1].equals("est"), "La direzione 'est' dovrebbe essere presente");
     }
+    
+    @Test
+    void testGetDirezioni3() {
+    	//aggiungiamo più stanze
+    	Stanza aulaN10 = new Stanza("Aula N10");
+        Stanza aulacampus = new Stanza("AulaCampus");
+        Stanza rettorato = new Stanza("Rettorato");
+        //impostiamo come stanze adiacenti piu stanze del dovuto
+    	atrio.impostaStanzaAdiacente("nord", aulaN11);
+        atrio.impostaStanzaAdiacente("est", biblioteca);
+        atrio.impostaStanzaAdiacente("sud", aulacampus );
+        atrio.impostaStanzaAdiacente("ovest", aulaN10);
+        atrio.impostaStanzaAdiacente("nord", rettorato);    
+        String[] direzioni = atrio.getDirezioni();
+        assertEquals(4, direzioni.length, "Le direzioni dovrebbero essere 4");
+        assertTrue(direzioni[0].equals("nord") || direzioni[1].equals("nord")|| direzioni[2].equals("nord")|| direzioni[3].equals("nord"), "La direzione 'nord' dovrebbe essere presente");
+        assertTrue(direzioni[0].equals("est") || direzioni[1].equals("est")|| direzioni[2].equals("est")|| direzioni[3].equals("est"), "La direzione 'est' dovrebbe essere presente");
+        assertTrue(direzioni[0].equals("ovest") || direzioni[1].equals("ovest")|| direzioni[2].equals("ovest")|| direzioni[3].equals("ovest"), "La direzione 'nord' dovrebbe essere presente");
+        assertTrue(direzioni[0].equals("sud") || direzioni[1].equals("sud")|| direzioni[2].equals("sud")|| direzioni[3].equals("sud"), "La direzione 'est' dovrebbe essere presente");
+        assertTrue(atrio.getStanzaAdiacente("nord").equals(rettorato), "La stanza a nord dovrebbe essere rettorato in quanto sovrascrive aula N11");
+    }
 
     @Test
     void testToString() {

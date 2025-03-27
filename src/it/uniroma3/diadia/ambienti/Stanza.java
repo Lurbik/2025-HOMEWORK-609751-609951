@@ -126,7 +126,7 @@ public class Stanza {
 			if ( attrezzo != null && attrezzo.getNome().equals(nomeAttrezzo) ) {
 				attrezzoCercato = attrezzo;
 				break;
-			}
+				}
 		}
 		return attrezzoCercato;	
 	}
