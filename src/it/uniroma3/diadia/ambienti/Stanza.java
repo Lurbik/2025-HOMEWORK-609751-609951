@@ -4,6 +4,17 @@ import it.uniroma3.diadia.attrezzi.*;
 import it.uniroma3.diadia.giocatore.*;
 import it.uniroma3.diadia.*;
 
+/**
+ * Classe Stanza - una stanza in un gioco di ruolo.
+ * Una stanza e' un luogo fisico nel gioco.
+ * E' collegata ad altre stanze attraverso delle uscite.
+ * Ogni uscita e' associata ad una direzione.
+ * 
+ * @author docente di POO 
+ * @see Attrezzo
+ * @version base
+*/
+
 public class Stanza {
 	
 	static final private int NUMERO_MASSIMO_DIREZIONI = 4;

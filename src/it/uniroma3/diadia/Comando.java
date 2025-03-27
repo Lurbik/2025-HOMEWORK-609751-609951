@@ -5,7 +5,17 @@ import it.uniroma3.diadia.ambienti.*;
 import it.uniroma3.diadia.attrezzi.*;
 import it.uniroma3.diadia.giocatore.*;
 
-
+/**
+ * Questa classe modella un comando.
+ * Un comando consiste al piu' di due parole:
+ * il nome del comando ed un parametro
+ * su cui si applica il comando.
+ * (Ad es. alla riga digitata dall'utente "vai nord"
+ *  corrisponde un comando di nome "vai" e parametro "nord").
+ *
+ * @author  docente di POO
+ * @version base
+ */
 
 import java.util.Scanner;
 
@@ -37,5 +47,8 @@ public class Comando {
     public boolean sconosciuto() {
         return (this.nome == null);
     }
+    
+    
 }
 
+//pablo

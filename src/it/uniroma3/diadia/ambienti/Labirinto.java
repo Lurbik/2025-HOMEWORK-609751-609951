@@ -3,6 +3,18 @@ import it.uniroma3.diadia.attrezzi.*;
 import it.uniroma3.diadia.giocatore.*;
 import it.uniroma3.diadia.*;
 
+/**
+* Questa classe imposta le locazioni delle varie stanze 
+* nella partita, si occupa di impostare anche la stanza corrente
+* e la stanza vincente e imposta i possibili attrezzi che una stanza 
+* può contenere
+* 
+*
+* @author 609751 - 609951
+* @see Stanza
+* @version versione
+*/
+
 public class Labirinto {
 	private Stanza StanzaCorrente;
     private Stanza StanzaVincente;

@@ -4,7 +4,15 @@ import it.uniroma3.diadia.ambienti.*;
 import it.uniroma3.diadia.attrezzi.*;
 import it.uniroma3.diadia.giocatore.*;
 
-
+/**
+ * Questa classe modella una partita del gioco
+ *
+ * @author  docente di POO
+ * @see Stanza
+ * @see Labirinto
+ * @see Giocatore
+ * @version base
+ */
 
 public class Partita {
 

@@ -5,6 +5,15 @@ import it.uniroma3.diadia.giocatore.Borsa;
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.Partita;
 
+/**
+* Questa classe genera un giocatore all'interno della partita,
+* il giocatore è responsabile della gestione dei CFU e degli attrezzi
+* mediante una borsa.
+*
+* @author 609751 - 609951
+* @see Borsa
+* @version base
+*/
 public class Giocatore {
     private int cfu;
     private Borsa borsa;

@@ -4,7 +4,16 @@ import it.uniroma3.diadia.ambienti.*;
 import it.uniroma3.diadia.giocatore.*;
 import it.uniroma3.diadia.*;
 
-
+/**
+ * Una semplice classe che modella un attrezzo.
+ * Gli attrezzi possono trovarsi all'interno delle stanze
+ * del labirinto.
+ * Ogni attrezzo ha un nome ed un peso.
+ *
+ * @author  docente di POO
+ * @see Stanza
+ * @version base
+ */
 
 public class Attrezzo {
 
