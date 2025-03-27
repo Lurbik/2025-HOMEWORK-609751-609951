@@ -131,7 +131,6 @@ class TestStanza {
     }
     
     @Test
-    
     void testImpostaStanzaAdiacente3() {
     	atrio.impostaStanzaAdiacente("nord", aulaN11);
         atrio.impostaStanzaAdiacente("sud", biblioteca);
@@ -154,6 +153,17 @@ class TestStanza {
         String[] direzioni = atrio.getDirezioni();
         assertEquals(2, direzioni.length, "Le direzioni dovrebbero essere 2");
         assertTrue(direzioni[0].equals("nord") || direzioni[1].equals("nord"), "La direzione 'nord' dovrebbe essere presente");
+        assertTrue(direzioni[0].equals("est") || direzioni[1].equals("est"), "La direzione 'est' dovrebbe essere presente");
+    }
+    
+    @Test
+    void testGetDirezioni2() {
+    	atrio.impostaStanzaAdiacente("nord", aulaN11);
+        atrio.impostaStanzaAdiacente("est", biblioteca);
+        
+        String[] direzioni = atrio.getDirezioni();
+        assertEquals(2, direzioni.length, "Le direzioni dovrebbero essere 2");
+        assertFalse(direzioni[0].equals("ovest") || direzioni[1].equals("nord"), "La direzione 'nord' dovrebbe essere presente");
         assertTrue(direzioni[0].equals("est") || direzioni[1].equals("est"), "La direzione 'est' dovrebbe essere presente");
     }
 
