@@ -109,6 +109,28 @@ class TestStanza {
         assertEquals("lanterna", attrezzoTrovato.getNome(), "Il nome dell'attrezzo trovato non è corretto");
     }
     
+    @Test
+    void testGetAttrezzo2() {
+        // Verifica che all'aggiunta di più attrezzi possa trovarli tutti
+        atrio.addAttrezzo(lanterna);
+        atrio.addAttrezzo(osso);
+        Attrezzo attrezzoTrovato1 = atrio.getAttrezzo("lanterna");
+        Attrezzo attrezzoTrovato2 = atrio.getAttrezzo("osso");
+        assertNotNull(attrezzoTrovato1, "L'attrezzo 'lanterna' dovrebbe essere trovato");
+        assertNotNull(attrezzoTrovato2, "L'attrezzo 'osso' dovrebbe essere trovato");
+        assertEquals("lanterna", attrezzoTrovato1.getNome(), "Il nome dell'attrezzo trovato è corretto");
+        assertEquals("osso", attrezzoTrovato2.getNome(), "Il nome dell'attrezzo trovato è corretto");
+    }
+    
+    @Test
+    void testGetAttrezzo3() {
+        // Verifica che all'aggiunta di 1 attrezzo non me ne trovi un altro
+        atrio.addAttrezzo(lanterna);
+        Attrezzo attrezzoTrovato1 = atrio.getAttrezzo("osso");
+        Attrezzo attrezzoTrovato2 = atrio.getAttrezzo("spada");
+        assertNull(attrezzoTrovato1, "L'attrezzo 'osso' non dovrebbe essere trovato");
+        assertNull(attrezzoTrovato2, "L'attrezzo 'spada' non dovrebbe essere trovato");
+    }
 
     @Test
     void testImpostaStanzaAdiacente() {
