@@ -32,6 +32,7 @@ public class DiaDia {
 
 	private Partita partita;
 	private IOConsole io;
+	
 
 	public DiaDia() {
 		this.partita = new Partita();
@@ -106,7 +107,9 @@ public class DiaDia {
 			int cfu = this.partita.getGiocatore().getCfu();
 			this.partita.getGiocatore().setCfu(--cfu);
 		}
+		int cfu2 = this.partita.getGiocatore().getCfu();
 		io.mostraMessaggio(partita.getStanzaCorrente().getDescrizione());
+		io.mostraMessaggio("Hai " + cfu2 + " cfu rimanenti.");
 	}
 	
 	private void prendi(String nomeAttrezzo) {
