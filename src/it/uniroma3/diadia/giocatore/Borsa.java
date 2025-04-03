@@ -62,6 +62,14 @@ public class Borsa {
 		
 		return peso;
 	}
+	
+	public int getPesoRim() {
+		int peso = DEFAULT_PESO_MAX_BORSA;
+		for (int i= 0; i<this.numeroAttrezzi; i++)
+		peso -= this.attrezzi[i].getPeso();
+		
+		return peso;
+	}
 	public boolean isEmpty() {
 		return this.numeroAttrezzi == 0;
 	}

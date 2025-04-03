@@ -118,6 +118,8 @@ public class DiaDia {
         if (attrezzo != null) {
             if (this.partita.getGiocatore().getBorsa().addAttrezzo(attrezzo)) {
                 io.mostraMessaggio("Hai preso l'attrezzo: " + attrezzo.getNome());
+                
+                io.mostraMessaggio("La tua borsa può contenere ancora " + this.partita.getGiocatore().getBorsa().getPesoRim() + " kg.");
                 stanza.removeAttrezzo(attrezzo);
             } else {
                 // Se la borsa è piena
@@ -135,6 +137,7 @@ public class DiaDia {
         if (attrezzo != null) {
             this.partita.getStanzaCorrente().addAttrezzo(attrezzo);
             io.mostraMessaggio("Hai posato l'attrezzo: " + attrezzo.getNome());
+            io.mostraMessaggio("La tua borsa può contenere ancora " + this.partita.getGiocatore().getBorsa().getPesoRim() + " kg.");
         } else {
             io.mostraMessaggio("Non hai questo attrezzo nella borsa.");
         }
