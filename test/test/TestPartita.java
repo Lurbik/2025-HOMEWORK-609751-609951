@@ -34,11 +34,15 @@ class TestPartita {
         // Verifica che la partita inizi correttamente con le stanze
         assertNotNull(atrio, "La stanza corrente non dovrebbe essere null");
         assertNotNull(biblioteca, "La stanza vincente non dovrebbe essere null");
-
-        // Verifica che la stanza iniziale sia correttamente l'atrio
+    }
+    
+    void testStanzeIniziali2() {
+    	// Verifica che la stanza iniziale sia correttamente l'atrio
         assertEquals("Atrio", atrio.getNome(), "La stanza corrente dovrebbe essere l'atrio");
-        
-        // Verifica che la stanza vincente sia correttamente la biblioteca
+    }
+    
+    void testStanzeIniziali3() {
+    	// Verifica che la stanza vincente sia correttamente la biblioteca
         assertEquals("Biblioteca", biblioteca.getNome(), "La stanza vincente dovrebbe essere la biblioteca");
     }
 
