@@ -107,9 +107,9 @@ public class DiaDia {
 			int cfu = this.partita.getGiocatore().getCfu();
 			this.partita.getGiocatore().setCfu(--cfu);
 		}
-		int cfu2 = this.partita.getGiocatore().getCfu();
+		
 		io.mostraMessaggio(partita.getStanzaCorrente().getDescrizione());
-		io.mostraMessaggio("Hai " + cfu2 + " cfu rimanenti.");
+		io.mostraMessaggio("Hai " + this.partita.getGiocatore().getCfu() + " cfu rimanenti.");
 	}
 	
 	private void prendi(String nomeAttrezzo) {
@@ -118,8 +118,9 @@ public class DiaDia {
         if (attrezzo != null) {
             if (this.partita.getGiocatore().getBorsa().addAttrezzo(attrezzo)) {
                 io.mostraMessaggio("Hai preso l'attrezzo: " + attrezzo.getNome());
+                int pesorim = this.partita.getGiocatore().getBorsa().getPesoMax() - this.partita.getGiocatore().getBorsa().getPeso();
                 
-                io.mostraMessaggio("La tua borsa può contenere ancora " + this.partita.getGiocatore().getBorsa().getPesoRim() + " kg.");
+                io.mostraMessaggio("La tua borsa può contenere ancora " + pesorim + " kg.");
                 stanza.removeAttrezzo(attrezzo);
             } else {
                 // Se la borsa è piena
