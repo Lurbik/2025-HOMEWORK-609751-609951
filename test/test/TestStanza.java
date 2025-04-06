@@ -81,6 +81,7 @@ class TestStanza {
         atrio.addAttrezzo(lanterna);
         atrio.addAttrezzo(spada);
         atrio.addAttrezzo(osso);
+        
         boolean attrezzoRimosso = atrio.removeAttrezzo(spada);
         
         assertTrue(attrezzoRimosso, "L'attrezzo dovrebbe essere rimosso correttamente");
@@ -154,6 +155,7 @@ class TestStanza {
     
     @Test
     void testImpostaStanzaAdiacente3() {
+    	//verifica che con l'inserimento di 2 direzione le restanti rimangano vuote
     	atrio.impostaStanzaAdiacente("nord", aulaN11);
         atrio.impostaStanzaAdiacente("sud", biblioteca);
         
@@ -180,6 +182,7 @@ class TestStanza {
     
     @Test
     void testGetDirezioni2() {
+    	//verifica che assegnando 2 direzioni esse non siano assegnate ad altre direzioni
     	atrio.impostaStanzaAdiacente("nord", aulaN11);
         atrio.impostaStanzaAdiacente("est", biblioteca);
         
@@ -191,6 +194,8 @@ class TestStanza {
     
     @Test
     void testGetDirezioni3() {
+    	//Aggiungendo più stanze nella stessa direzione il numero di direzioni rimanga limitato a 4 e che non ci possano essere 2 stanze nella stessa direzione
+    	
     	//aggiungiamo più stanze
     	Stanza aulaN10 = new Stanza("Aula N10");
         Stanza aulacampus = new Stanza("AulaCampus");
@@ -218,5 +223,40 @@ class TestStanza {
         assertTrue(descrizione.contains("Atrio"), "La descrizione dovrebbe contenere il nome della stanza");
         assertTrue(descrizione.contains("lanterna"), "La descrizione dovrebbe contenere il nome dell'attrezzo");
     }
+    
+    @Test
+    void testToString2() {
+        // Verifica che il metodo toString restituisca una descrizione corretta della stanza aggiungendo 2 oggetti
+        atrio.addAttrezzo(lanterna);
+        atrio.addAttrezzo(spada);
+        String descrizione = atrio.toString();
+       
+        assertTrue(descrizione.contains("Atrio"), "La descrizione dovrebbe contenere il nome della stanza");
+        assertTrue(descrizione.contains("lanterna") && descrizione.contains("spada"), "La descrizione dovrebbe contenere il nome dell'attrezzo");
+        
+    }
+    
+    @Test
+    void testToString3() {
+        // Verifica che il metodo toString restituisca una descrizione corretta della stanza aggiungendo 2 oggetti e poi eliminandone 1
+       
+    	//procedimento uguale al test precedente
+    	atrio.addAttrezzo(lanterna);
+        atrio.addAttrezzo(spada);
+        String descrizione = atrio.toString();
+       
+        assertTrue(descrizione.contains("Atrio"), "La descrizione dovrebbe contenere il nome della stanza");
+        assertTrue(descrizione.contains("lanterna") && descrizione.contains("spada"), "La descrizione dovrebbe contenere il nome dell'attrezzo");
+        
+        //rimuoviamo un attrezzo vedendo se si rimuova anche per la funzione ToSttring e che sia corretta la descrizione con solo spada
+        atrio.removeAttrezzo(lanterna);
+        String descrizione2 = atrio.toString();
+        
+        assertTrue(descrizione2.contains("Atrio"), "La descrizione dovrebbe contenere il nome della stanza");
+        assertFalse(descrizione2.contains("lanterna") && descrizione2.contains("spada"), "La descrizione dovrebbe essere errata");
+        assertTrue(descrizione2.contains("spada"), "La descrizione dovrebbe essere corretta");
+        
+    }
+
 
 }
