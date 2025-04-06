@@ -9,8 +9,6 @@ import org.junit.jupiter.api.BeforeEach;
 import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.giocatore.Giocatore;
 import it.uniroma3.diadia.ambienti.Stanza;
-import it.uniroma3.diadia.attrezzi.Attrezzo;
-import it.uniroma3.diadia.ambienti.Labirinto;
 
 
 class TestPartita {

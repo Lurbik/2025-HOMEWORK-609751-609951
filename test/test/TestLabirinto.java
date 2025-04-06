@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 
 import it.uniroma3.diadia.ambienti.Labirinto;
 import it.uniroma3.diadia.ambienti.Stanza;
-import it.uniroma3.diadia.attrezzi.Attrezzo;
 class TestLabirinto {
 
 	private Labirinto labirinto;
@@ -31,10 +30,23 @@ class TestLabirinto {
 
     @Test
     void testStanzaIniziale() {
-        // Verifica che la stanza iniziale sia correttamente l'atrio
+    	//Verifica che la stanza iniziale sia Atrio
         assertNotNull(atrio, "La stanza corrente non dovrebbe essere null");
         assertEquals("Atrio", atrio.getNome(), "La stanza corrente dovrebbe essere l'atrio");
     }
+    
+    @Test
+    void testStanzaCorrenteNonNull() {
+    	//Verifica che la stanza corrente non sia nulla quando il labirinto viene creato
+        assertNotNull(labirinto.getStanzaCorrente(), "La stanza corrente non dovrebbe essere null");
+    }
+    
+    @Test
+    void testStanzaInizialeAtrio() {
+    	//Verifica che la stanza corrente sia effettivamente l'atrio all'inizio
+        assertEquals("Atrio", labirinto.getStanzaCorrente().getNome(), "La stanza iniziale deve essere Atrio");
+    }
+
 
     @Test
     void testStanzaVincente() {
@@ -42,6 +54,21 @@ class TestLabirinto {
         assertNotNull(biblioteca, "La stanza vincente non dovrebbe essere null");
         assertEquals("Biblioteca", biblioteca.getNome(), "La stanza vincente dovrebbe essere la biblioteca");
     }
+    
+    @Test
+    void testStanzaVincenteDifferente() {
+    	//Verifica che la stanza vincente sia diversa dalla stanza corrente
+        assertNotEquals(labirinto.getStanzaCorrente().getNome(), biblioteca.getNome(), 
+                        "La stanza vincente dovrebbe essere diversa dalla stanza corrente");
+    }
+    
+    @Test
+    void testStanzaVincenteNelLabirinto() {
+    	//Verifica che la stanza vincente sia quella impostata nel labirinto
+        assertEquals(labirinto.getStanzaVincente().getNome(), "Biblioteca", 
+                     "La stanza vincente deve essere correttamente impostata come Biblioteca");
+    }
+
 
     @Test
     void testCollegamentiStanze() {
@@ -65,33 +92,28 @@ class TestLabirinto {
         assertEquals("Laboratorio Campus", adiacenteOvest.getNome(), "La stanza adiacente a ovest dovrebbe essere il Laboratorio Campus");
     }
 
-   
-    //void testAggiuntaAttrezzo() {
-        // Verifica che l'attrezzo venga aggiunto correttamente alla stanza
-        //Attrezzo lanterna = new Attrezzo("lanterna", 3);
-        //atrio.addAttrezzo(lanterna);
-
-        //assertTrue(atrio.hasAttrezzo("lanterna"), "La stanza dovrebbe contenere l'attrezzo 'lanterna'");
-    //}
-
-   
-    //void testRimozioneAttrezzo() {
-        // Verifica che l'attrezzo venga rimosso correttamente dalla stanza
-        //Attrezzo lanterna = new Attrezzo("lanterna", 3);
-        //atrio.addAttrezzo(lanterna);
-
-        // Rimuoviamo l'attrezzo
-        //Attrezzo rimosso = atrio.removeAttrezzo(lanterna);
-
-        //assertNotNull(rimosso, "L'attrezzo dovrebbe essere rimosso correttamente");
-        //assertFalse(atrio.hasAttrezzo("lanterna"), "La stanza non dovrebbe più contenere l'attrezzo 'lanterna'");
-   // }
-
     @Test
-    void testNavigazioneStanza() {
+    void testNavigazioneStanzaCorrenteBiblioteca() {
         // Cambiamo la stanza corrente a "Biblioteca"
         labirinto.setStanzaCorrente(biblioteca);
         assertEquals(biblioteca, labirinto.getStanzaCorrente(), "La stanza corrente dovrebbe essere la biblioteca");
     }
+    
+    @Test
+    void testCambioStanzaCorrenteDaAtrio() {
+    	//Verifica che la stanza corrente non sia più l'atrio dopo il cambio
+        labirinto.setStanzaCorrente(biblioteca);
+        assertNotEquals(atrio, labirinto.getStanzaCorrente(), "La stanza corrente non dovrebbe essere l'atrio");
+    }
+
+    @Test
+    void testNavigazioneStanza() {
+    	//Verifica che il cambio della stanza corrente aggiorni il riferimento alla stanza corrente
+        labirinto.setStanzaCorrente(biblioteca);
+        Stanza nuovaStanza = labirinto.getStanzaCorrente();
+        assertNotNull(nuovaStanza, "La stanza corrente dopo il cambio dovrebbe essere diversa da null");
+        assertEquals("Biblioteca", nuovaStanza.getNome(), "La stanza corrente dopo il cambio dovrebbe essere la biblioteca");
+    }
+
 
 }
