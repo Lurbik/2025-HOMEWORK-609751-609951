@@ -103,7 +103,7 @@ public class Stanza {
         }
         risultato.append("\nAttrezzi nella stanza: ");
         for (Attrezzo attrezzo : this.attrezzi) {
-            if (attrezzo != null) { // Verifica che l'attrezzo non sia null
+            if (attrezzo != null) { // verifica che l'attrezzo non sia null
                 risultato.append(attrezzo.toString() + " ");
             }
         }

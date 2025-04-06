@@ -63,13 +63,7 @@ public class Borsa {
 		return peso;
 	}
 	
-	public int getPesoRim() {
-		int peso = DEFAULT_PESO_MAX_BORSA;
-		for (int i= 0; i<this.numeroAttrezzi; i++)
-		peso -= this.attrezzi[i].getPeso();
-		
-		return peso;
-	}
+
 	public boolean isEmpty() {
 		return this.numeroAttrezzi == 0;
 	}
@@ -79,20 +73,20 @@ public class Borsa {
 	public Attrezzo removeAttrezzo(String nomeAttrezzo) 
 	{
 		
-		// ---> TODO (implementare questo metodo) <---
+		
 		for (int i = 0; i < this.numeroAttrezzi; i++) {
             if (this.attrezzi[i].getNome().equals(nomeAttrezzo)) {
                 Attrezzo attrezzo = this.attrezzi[i];
-                // Sposta tutti gli attrezzi successivi indietro
+                // sposta tutti gli attrezzi successivi indietro
                 for (int j = i; j < this.numeroAttrezzi - 1; j++) {
                     this.attrezzi[j] = this.attrezzi[j + 1];
                 }
-                this.attrezzi[this.numeroAttrezzi - 1] = null; // Pulisce l'ultima posizione
+                this.attrezzi[this.numeroAttrezzi - 1] = null; // pulisce l'ultima posizione
                 this.numeroAttrezzi--;
                 return attrezzo;
             }
         }
-        return null; // L'attrezzo non è stato trovato
+        return null; // l'attrezzo non è stato trovato
     }
 		
 	

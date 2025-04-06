@@ -19,7 +19,7 @@ public class Giocatore {
     private Borsa borsa;
 
     public Giocatore() {
-        this.borsa = new Borsa(); // inizializza Borsa per il giocatore
+        this.borsa = new Borsa(); 
     }
 
     public int getCfu() {

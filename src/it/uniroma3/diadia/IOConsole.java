@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 
 /**
- * Classe che si occupa del diaccoppiamento di input e output
+ * Classe che si occupa del disaccoppiamento di input e output
  *
  * @author  docente di POO 
  *         
