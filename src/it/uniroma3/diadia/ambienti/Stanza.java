@@ -4,6 +4,7 @@ import it.uniroma3.diadia.attrezzi.*;
 import it.uniroma3.diadia.giocatore.*;
 import it.uniroma3.diadia.*;
 
+
 /**
  * Classe Stanza - una stanza in un gioco di ruolo.
  * Una stanza e' un luogo fisico nel gioco.
@@ -21,6 +22,7 @@ public class Stanza {
 	static final private int NUMERO_MASSIMO_ATTREZZI = 10;
 	
 	private String nome;
+	
 	
     private Attrezzo[] attrezzi;
     private int numeroAttrezzi;
@@ -105,6 +107,9 @@ public class Stanza {
                 risultato.append(attrezzo.toString() + " ");
             }
         }
+        
+        
+        
         return risultato.toString();
     }
    
