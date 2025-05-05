@@ -16,6 +16,7 @@ public class ComandoPosa implements Comando{
 		if(partita.getStanzaCorrente().getNumeroAttrezziPossibili()>0) {
 			partita.getStanzaCorrente().addAttrezzo(a);
 			partita.getGiocatore().getBorsa().removeAttrezzo(NomeAttrezzo);
+			io.mostraMessaggio("attrezzo posato con successo!");
 		}
 		else {
 			io.mostraMessaggio("Errore");
