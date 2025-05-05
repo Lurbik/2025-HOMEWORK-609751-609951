@@ -1,9 +1,11 @@
 package it.uniroma3.diadia;
 
-import java.util.Scanner;
-import it.uniroma3.diadia.ambienti.*;
-import it.uniroma3.diadia.attrezzi.*;
-import it.uniroma3.diadia.giocatore.*;
+
+
+import it.uniroma3.diadia.comandi.Comando;
+import it.uniroma3.diadia.comandi.FabbricaDiComandiFisarmonica;
+
+
 
 /**
  * Classe principale di diadia, un semplice gioco di ruolo ambientato al dia.
@@ -28,21 +30,22 @@ public class DiaDia {
 			"o regalarli se pensi che possano ingraziarti qualcuno.\n\n"+
 			"Per conoscere le istruzioni usa il comando 'aiuto'.";
 	
-	static final private String[] elencoComandi = {"vai", "aiuto", "fine", "prendi", "posa"};
+	//static final private String[] elencoComandi = {"vai", "aiuto", "fine", "prendi", "posa"};
 
 	private Partita partita;
-	private IOConsole io;
+	private IO io;
 	
 
-	public DiaDia() {
+	public DiaDia(IO console) {
+		
+		this.io = console;
 		this.partita = new Partita();
-		this.io = new IOConsole();
 	}
 
 	public void gioca() {
 		String istruzione; 
 		
-
+		
 		io.mostraMessaggio(MESSAGGIO_BENVENUTO);
 				
 		do		
@@ -56,7 +59,32 @@ public class DiaDia {
 	 *
 	 * @return true se l'istruzione e' eseguita e il gioco continua, false altrimenti
 	 */
-	private boolean processaIstruzione(String istruzione) {
+	
+	private boolean processaIstruzione(String istruzione) 
+	{
+		Comando comando;
+		FabbricaDiComandiFisarmonica factory = new FabbricaDiComandiFisarmonica(this.io);
+		comando = factory.costruisciComando(istruzione);
+		comando.esegui(this.partita);
+		if(this.partita.vinta()) 
+			io.mostraMessaggio("Hai vinto!");
+		if(!this.partita.giocatoreIsVivo()) 
+			io.mostraMessaggio("Hai esaurito i CFU");
+			return this.partita.isFinita();
+			
+		
+		}
+	
+	public static void main(String[] argc) {
+		IO console = new IOConsole();
+		DiaDia gioco = new DiaDia(console);
+		gioco.gioca();
+	}
+	
+	
+		
+	
+/*	private boolean processaIstruzione(String istruzione) {
 		 Comando comandoDaEseguire = new Comando(istruzione);
 
 	        if (comandoDaEseguire.getNome().equals("fine")) {
@@ -148,13 +176,11 @@ public class DiaDia {
 	/**
 	 * Comando "Fine".
 	 */
+/*
 	private void fine() {
 		io.mostraMessaggio("Grazie di aver giocato! ");  // si desidera smettere
 	}
-
-	public static void main(String[] argc) {
-		DiaDia gioco = new DiaDia();
-		gioco.gioca();
-	}
+*/
+	
 }
  

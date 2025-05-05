@@ -1,9 +1,9 @@
 
 
-package it.uniroma3.diadia;
-import it.uniroma3.diadia.ambienti.*;
-import it.uniroma3.diadia.attrezzi.*;
-import it.uniroma3.diadia.giocatore.*;
+package it.uniroma3.diadia.comandi;
+
+import it.uniroma3.diadia.Partita;
+import it.uniroma3.diadia.IO;
 
 /**
  * Questa classe modella un comando.
@@ -17,7 +17,7 @@ import it.uniroma3.diadia.giocatore.*;
  * @version base
  */
 
-import java.util.Scanner;
+
 
 
 /**
@@ -31,7 +31,7 @@ import java.util.Scanner;
  * @author  docente di POO
  * @version base
  */
-public class Comando {
+/**public class Comando {
 
     private String nome;
     private String parametro;
@@ -62,4 +62,18 @@ public class Comando {
     
     
 }
+*/
 
+public interface Comando{
+	
+	public void esegui(Partita partita);
+
+	void setParametro(String parametro);
+
+	String getParametro();
+
+	public void setIo(IO io);
+	
+	public String getNome();
+	
+}

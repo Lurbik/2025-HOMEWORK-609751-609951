@@ -79,6 +79,9 @@ public class Partita {
 	        return this.giocatore.getCfu(); // Restituisce i CFU dal Giocatore
 	    }
 
+	 public boolean giocatoreIsVivo() {
+			return this.giocatore.getCfu()>0;
+		}
 	    public void setCfu(int cfu) {
 	        this.giocatore.setCfu(cfu); // Imposta i CFU nel Giocatore
 	    }

@@ -63,10 +63,20 @@ public class Borsa {
 		return peso;
 	}
 	
-
+	public int getPesoRimanente() {
+		return pesoMax-getPeso();
+	}
+	public boolean getPesoRimanenteB(Attrezzo attrezzo) {
+		if(attrezzo != null && this.getPesoMax()-this.getPeso()>=attrezzo.getPeso()) {
+			return true;
+		}
+		return false;
+	}
+	
 	public boolean isEmpty() {
 		return this.numeroAttrezzi == 0;
 	}
+	
 	public boolean hasAttrezzo(String nomeAttrezzo) {
 		return this.getAttrezzo(nomeAttrezzo)!=null;
 	}

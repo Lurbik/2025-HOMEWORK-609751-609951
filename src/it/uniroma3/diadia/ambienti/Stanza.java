@@ -113,7 +113,7 @@ public class Stanza {
         return risultato.toString();
     }
    
-		public boolean hasAttrezzo(String nomeAttrezzo) {
+	public boolean hasAttrezzo(String nomeAttrezzo) {
 			boolean trovato;
 			trovato = false;
 			for (Attrezzo attrezzo : this.attrezzi) {
@@ -159,6 +159,12 @@ public class Stanza {
 	    	direzioni[i] = this.direzioni[i];
 	    return direzioni;
     }
+	
+	public int getNumeroAttrezziPossibili() {
+		return NUMERO_MASSIMO_ATTREZZI-this.numeroAttrezzi;
+	}
 
 }
+
+
 
