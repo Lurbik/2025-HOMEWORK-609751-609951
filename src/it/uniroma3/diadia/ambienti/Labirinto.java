@@ -33,7 +33,7 @@ public class Labirinto {
     	
 		/* crea stanze del labirinto */
 		Stanza atrio = new Stanza("Atrio");
-		Stanza aulaN11 = new Stanza("Aula N11");
+		Stanza aulaN11 = new StanzaMagica("Aula N11");
 		Stanza aulaN10 = new Stanza("Aula N10");
 		Stanza laboratorio = new StanzaBuia("Laboratorio Campus", "lanterna");
 		Stanza biblioteca = new Stanza("Biblioteca");

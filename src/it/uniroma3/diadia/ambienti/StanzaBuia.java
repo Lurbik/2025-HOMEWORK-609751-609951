@@ -21,4 +21,6 @@ public class StanzaBuia extends Stanza{
 		}
 		return super.getDescrizione();
 	}
+	
+	
 }
