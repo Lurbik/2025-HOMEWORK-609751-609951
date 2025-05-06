@@ -42,5 +42,9 @@ public class StanzaMagica extends Stanza {
 			return super.addAttrezzo(attrezzo);
 
 			}
+	@Override
+	public String getDescrizione() {
+		return super.getDescrizione() + "\nQuesta stanza è magica";
+	}
 
 }
