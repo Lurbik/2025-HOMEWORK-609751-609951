@@ -24,7 +24,7 @@ public class StanzaBloccata extends Stanza {
 	@Override
 	public String getDescrizione() {
 		String bloccato = new String();
-		bloccato = "A nord ci sta una serratura. Servirà un oggetto specifico?";
+		bloccato = "A nord ci sta una serratura. Servirà una chiave?";
 		if(!this.hasAttrezzo(Lasciapassare)) {
 			return super.getDescrizione() +"\n" +bloccato;
 		}
