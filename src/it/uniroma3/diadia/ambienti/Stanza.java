@@ -24,8 +24,8 @@ public class Stanza {
 	private String nome;
 	
 	
-    protected Attrezzo[] attrezzi;
-    protected int numeroAttrezzi;
+    private Attrezzo[] attrezzi;
+    private int numeroAttrezzi;
     
     private Stanza[] stanzeAdiacenti;
     private int numeroStanzeAdiacenti;
