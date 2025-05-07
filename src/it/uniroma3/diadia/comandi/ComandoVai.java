@@ -22,6 +22,7 @@ public class ComandoVai implements Comando
 	// qui il codice per cambiare stanza ...
 		Stanza stanzaCorrente = partita.getStanzaCorrente();
 		Stanza prossimaStanza = null;
+		
 		if(direzione == null) 
 		{
 			System.out.println("Dove vuoi andare? Devi specificare una direzione");
@@ -29,8 +30,9 @@ public class ComandoVai implements Comando
 			
 		}
 		prossimaStanza = stanzaCorrente.getStanzaAdiacente(this.direzione);
+		
 		if(prossimaStanza == null) {
-			System.out.println("Direzione inesistente");
+			System.out.println("Non puoi andare in questa direzione");
 			return;
 			
 		}
