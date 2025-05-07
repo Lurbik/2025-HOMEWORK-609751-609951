@@ -43,5 +43,9 @@ public class StanzaMagicaProtected extends StanzaProtected{
 	else return false;
 
 	}
+	@Override
+	public String getDescrizione() {
+		return super.getDescrizione() + "\nQuesta stanza è magica";
+	}
 
 }
