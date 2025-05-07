@@ -11,7 +11,7 @@ public class StanzaMagica extends Stanza {
 
 	
 
-	private static final int SOGLIA_MAGICA_DEFAULT = 3;
+	private static final int SOGLIA_MAGICA_DEFAULT = 0;
 
 
 	public StanzaMagica(String nome) {

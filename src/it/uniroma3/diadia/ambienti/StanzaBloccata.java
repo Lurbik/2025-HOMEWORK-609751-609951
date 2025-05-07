@@ -14,7 +14,7 @@ public class StanzaBloccata extends Stanza {
 	public Stanza getStanzaAdiacente(String direzione) {
 		if(!this.hasAttrezzo(Lasciapassare)) {
 			if (direzione.equals("nord"))  {
-				System.out.println("Accesso negato, il lasciapassare è necessario.");
+				System.out.println("La porta è chiusa.");
 				return null;
 			}
 		}
