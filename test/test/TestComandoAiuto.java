@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import it.uniroma3.diadia.*;
-import it.uniroma3.diadia.Simulatore;
 import it.uniroma3.diadia.comandi.ComandoAiuto;
 import it.uniroma3.diadia.comandi.ComandoFine;
 
