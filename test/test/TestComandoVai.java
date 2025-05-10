@@ -66,7 +66,7 @@ public class TestComandoVai {
 	    
 	    // Verifica che l'attrezzo (la chiave) venga preso correttamente
 	    assertTrue(io.hasNextMessaggio());
-	    assertEquals("Hai preso l'attrezzo: chiave", io.nextMessaggio());
+	    assertEquals("attrezzo preso con successo!", io.nextMessaggio());
 	    
 	    // Verifica che il giocatore si sposti nella stanza successiva (Atrio)
 	    assertTrue(io.hasNextMessaggio());
@@ -74,7 +74,7 @@ public class TestComandoVai {
 	    
 	    // Verifica che l'attrezzo venga posato
 	    assertTrue(io.hasNextMessaggio());
-	    assertEquals("Hai posato l'attrezzo: chiave", io.nextMessaggio());
+	    assertEquals("attrezzo posato con successo!", io.nextMessaggio());
 	    
 	    // Verifica che il giocatore arrivi finalmente alla Biblioteca
 	    assertTrue(io.hasNextMessaggio());
