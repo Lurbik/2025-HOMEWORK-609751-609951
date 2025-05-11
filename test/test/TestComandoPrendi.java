@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import it.uniroma3.diadia.*;
 import it.uniroma3.diadia.comandi.*;
 import it.uniroma3.diadia.attrezzi.*;
+import it.uniroma3.diadia.ambienti.*;
 
 public class TestComandoPrendi {
 	private Partita p;
@@ -19,16 +20,7 @@ public class TestComandoPrendi {
 	private Attrezzo b;//attrezzo pesante
 	private Attrezzo n; //attrezzo null
 	
-	@BeforeEach
-	public void setup() {
-		p = new Partita();
-		c = new ComandoPrendi();
-		a = new Attrezzo("torcia", 4);
-		b = new Attrezzo("obesa", 100);
-		n = null;
-		i = new IOConsole();
-		c.setIo(i);
-	}
+	
 	
 	/*@Test
 	public void TestAttrezzoNonPresente() {
@@ -63,26 +55,24 @@ public class TestComandoPrendi {
 	
 	@Test
 	public void TestPartitaPrendi() {
-		String[] daLeggere = {"prendi osso", "vai ovest", "prendi chiave", "prendi mandorla", "fine"};
-	    IOSimulator io = Simulatore.creaSimulazionePartitaEGioca(daLeggere);
+		String[] daLeggere = {
+			"prendi osso",       // preso correttamente
+			"vai ovest",         // vai in laboratorio
+			"prendi chiave",     // troppo pesante (peso 10)
+			"prendi mandorla",   // NON presente → nuovo messaggio
+			"fine"
+		};
 
-	    // Verifica il messaggio di benvenuto
-	    assertTrue(io.hasNextMessaggio());
-	    assertEquals(DiaDia.MESSAGGIO_BENVENUTO, io.nextMessaggio());
-	    
-	    assertTrue(io.hasNextMessaggio());
-	    assertEquals("attrezzo preso con successo!", io.nextMessaggio());
-	    
-	    assertTrue(io.hasNextMessaggio());
-	    assertEquals("Laboratorio Campus", io.nextMessaggio());
-	    
-	    assertTrue(io.hasNextMessaggio());
-	    assertEquals("Attrezzo troppo pesante per entrare nella borsa!", io.nextMessaggio());
-	    
-	    assertTrue(io.hasNextMessaggio());
-	    assertEquals("Attrezzo troppo pesante per entrare nella borsa!", io.nextMessaggio());
-	    
-	    assertTrue(io.hasNextMessaggio());
+		IOSimulator io = Simulatore.creaSimulazionePartitaEGioca(daLeggere);
+
+		assertEquals(DiaDia.MESSAGGIO_BENVENUTO, io.nextMessaggio());
+		assertEquals("attrezzo preso con successo!", io.nextMessaggio());
+		assertEquals("Laboratorio Campus", io.nextMessaggio());
+		assertEquals("Errore", io.nextMessaggio());
+		assertEquals("Attrezzo non presente nella stanza!", io.nextMessaggio());
 		assertEquals(ComandoFine.MESSAGGIO_FINE, io.nextMessaggio());
 	}
+
+
+
 }

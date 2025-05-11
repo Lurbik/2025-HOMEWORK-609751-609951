@@ -13,6 +13,10 @@ public class ComandoPosa implements Comando{
 	@Override
 	public void esegui(Partita partita) {
 		Attrezzo a = partita.getGiocatore().getBorsa().getAttrezzo(NomeAttrezzo);
+		if (a == null) {
+		    io.mostraMessaggio("Attrezzo non presente nella borsa!");
+		    return;
+		}
 		if(partita.getStanzaCorrente().getNumeroAttrezziPossibili()>0) {
 			partita.getStanzaCorrente().addAttrezzo(a);
 			partita.getGiocatore().getBorsa().removeAttrezzo(NomeAttrezzo);

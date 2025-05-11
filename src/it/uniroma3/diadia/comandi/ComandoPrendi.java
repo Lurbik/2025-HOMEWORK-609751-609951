@@ -14,13 +14,17 @@ public class ComandoPrendi implements Comando{
 	
 	public void esegui(Partita partita) {
 		Attrezzo a = partita.getStanzaCorrente().getAttrezzo(nomeAttrezzo);
+		if (a == null) {
+	        io.mostraMessaggio("Attrezzo non presente nella stanza!");
+	        return;
+	    }
 		if(partita.getGiocatore().getBorsa().getPesoRimanenteB(a)) {
 			partita.getGiocatore().getBorsa().addAttrezzo(a);
 			partita.getStanzaCorrente().removeAttrezzo(a);
 			io.mostraMessaggio("attrezzo preso con successo!");
 		} 
 		else {
-			io.mostraMessaggio("Attrezzo troppo pesante per entrare nella borsa!");
+			io.mostraMessaggio("Errore");
 		}
 	}
 	

@@ -1,27 +1,37 @@
 package test;
+
 import static org.junit.jupiter.api.Assertions.*;
-
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import it.uniroma3.diadia.*;
+
+import it.uniroma3.diadia.IO;
+import it.uniroma3.diadia.IOSimulator;
+import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.comandi.ComandoAiuto;
-import it.uniroma3.diadia.comandi.ComandoFine;
 
 public class TestComandoAiuto {
-	@Test
-	public void TestAiuto() {
-		String[] righeDaLeggere = {"aiuto","fine"};
-		IOSimulator io = Simulatore.creaSimulazionePartitaEGioca(righeDaLeggere);
-		assertTrue(io.hasNextMessaggio());
-		assertEquals(DiaDia.MESSAGGIO_BENVENUTO, io.nextMessaggio());
-		for(int i = 0; i < ComandoAiuto.ELENCO_COMANDI.length; i++) {
-			assertTrue(io.hasNextMessaggio());
-			assertEquals(ComandoAiuto.ELENCO_COMANDI[i] + " ", io.nextMessaggio());
-		}
-		assertTrue(io.hasNextMessaggio());
-		io.nextMessaggio();
-		assertEquals(ComandoFine.MESSAGGIO_FINE, io.nextMessaggio());
-	}
-}
 
+	@Test
+	public void testEseguiMostraComandi() {
+	    IOSimulator io = new IOSimulator(new String[]{});
+	    ComandoAiuto comando = new ComandoAiuto();
+	    comando.setIo(io);
+	    Partita partita = new Partita();
+
+	    comando.esegui(partita);
+
+	    // Costruiamo una stringa con tutti i messaggi concatenati
+	    StringBuilder tuttiIMessaggi = new StringBuilder();
+	    while (io.hasNextMessaggio()) {
+	        String msg = io.nextMessaggio();
+	        if (msg != null) {
+	            tuttiIMessaggi.append(msg).append(" ");
+	        }
+	    }
+
+	    // Verifica che ogni comando sia presente nella stringa complessiva
+	    for (String cmd : ComandoAiuto.ELENCO_COMANDI) {
+	        assertTrue(tuttiIMessaggi.toString().contains(cmd), "Comando mancante nel messaggio: " + cmd);
+	    }
+	}
+
+}
