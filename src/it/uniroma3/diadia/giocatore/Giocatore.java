@@ -38,13 +38,13 @@ public class Giocatore {
         this.borsa = borsa;
     }
 
-    public boolean prendereAttrezzo(Attrezzo attrezzo) {
-        return this.borsa.addAttrezzo(attrezzo);
-    }
+    //public boolean prendereAttrezzo(Attrezzo attrezzo) {
+       // return this.borsa.addAttrezzo(attrezzo);
+    //}
 
-    public Attrezzo posareAttrezzo(String nomeAttrezzo) {
-        return this.borsa.removeAttrezzo(nomeAttrezzo);
-    }
+    //public Attrezzo posareAttrezzo(String nomeAttrezzo) {
+       // return this.borsa.removeAttrezzo(nomeAttrezzo);
+   // }
 
 }
 
