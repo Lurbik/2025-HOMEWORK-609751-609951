@@ -1,5 +1,5 @@
 package it.uniroma3.diadia.ambienti;
-
+import java.util.*;
 import it.uniroma3.diadia.attrezzi.*;
 import it.uniroma3.diadia.giocatore.*;
 import it.uniroma3.diadia.*;
